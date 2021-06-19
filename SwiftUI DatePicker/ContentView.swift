@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var date = Date()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack {
+                DatePicker("Trip Date",
+                           selection: $date,
+                           in: Date()...)
+                           //displayedComponents: .date)
+                    .datePickerStyle(GraphicalDatePickerStyle())
+                    .padding()
+            }
+            .navigationTitle("SwiftUI DatePicker")
+        }
     }
 }
 
